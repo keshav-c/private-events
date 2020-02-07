@@ -1,0 +1,5 @@
+<%= form_for :session, url: login_path, html: { class: 'col-md-6 col-md-offset-3' } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.submit "Login", class: "btn btn-primary" %>
+<% end %>

@@ -1,1 +1,5 @@
-<p>New user signup here</p>
+<%= form_for @user, html: { class: 'col-md-6 col-md-offset-3' } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.submit "Create my account", class: "btn btn-primary" %>
+<% end %>

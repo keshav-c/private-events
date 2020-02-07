@@ -1,14 +1,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-header, footer {
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+header {
   border: 1px dashed red;
+  padding-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
 
-header {
-  padding-top: 30px;
+footer {
+  border: 1px dashed red;
+  display: block;
+  clear: both;
+}
+
+form {
+  margin: 50px auto;;
+}
+
+input {
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100%;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
