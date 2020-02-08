@@ -2,7 +2,10 @@
 <% if @events.any? %>
   <ul>
     <% @events.each do |event| %>
-      <li><%= @event.name %> on <%= @event.time %>. Hosted by <%= @event.creator %></li>
+      <li>
+        <%= link_to event.name, event_path(event) %> on <%= event.time %>.
+        Hosted by <%= link_to event.creator.name, user_path(event.creator) %>
+      </li>
     <% end %>
   </ul>
 <% end %>

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def current_user
     return nil if cookies.signed[:user_id].nil?
 
-    @current_user ||= User.find(cookies.signed[:user_id])
+    @current_user ||= User.find_by(id: cookies.signed[:user_id])
   end
 
   def logged_in?

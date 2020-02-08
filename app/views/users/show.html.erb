@@ -1,13 +1,15 @@
 <% if current_user.name == @user.name %>
   <p>Welcome <%= @user.name %>!</p>
+  <%= link_to "Create new event", new_event_path %>
 <% else %>
   <p> This is <%= @user.name %>'s profile page</p>
 <% end %>
-<% if !@events.empty? %>
+
+<% if !@user.events.empty? %>
   <ul>
-    <% @events.each do |e| %>
+    <% @user.events.each do |e| %>
       <li>
-        <%= e.name %> @ <%= e.time %>
+        <%= link_to e.name, event_path(e) %> @ <%= e.time %>
       </li>
     <% end %>
   </ul>
