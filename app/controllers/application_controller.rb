@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !(current_user).nil?
   end
+
+  def user_logged_in
+    unless logged_in?
+      flash[:danger] = "You need to log in before creating events"
+      redirect_to root_url
+    end
+  end
 end

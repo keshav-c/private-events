@@ -1,0 +1,8 @@
+<h1>All events</h1>
+<% if @events.any? %>
+  <ul>
+    <% @events.each do |event| %>
+      <li><%= @event.name %> on <%= @event.time %>. Hosted by <%= @event.creator %></li>
+    <% end %>
+  </ul>
+<% end %>

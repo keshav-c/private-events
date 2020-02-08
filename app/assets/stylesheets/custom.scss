@@ -23,12 +23,13 @@ footer {
 }
 
 form {
-  margin: 50px auto;;
+  margin: 50px auto;
+  input, .field, .time {
+    margin-bottom: 15px;
+  }
 }
 
-input {
-  margin-bottom: 15px;
-}
+
 
 .btn {
   width: 100%;

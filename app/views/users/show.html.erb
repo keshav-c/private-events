@@ -1,2 +1,14 @@
-<h1>Welcome <%= @user.name %>!</h1>
-<p> This is <%= @user.name %>'s profile page</p>
+<% if current_user.name == @user.name %>
+  <p>Welcome <%= @user.name %>!</p>
+<% else %>
+  <p> This is <%= @user.name %>'s profile page</p>
+<% end %>
+<% if !@events.empty? %>
+  <ul>
+    <% @events.each do |e| %>
+      <li>
+        <%= e.name %> @ <%= e.time %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>    
