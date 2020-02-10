@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new(); end
 
   def create
-    @user
-    if @user = User.find_by(name: params[:session][:name])
+    @user = User.find_by(name: params[:session][:name])
+    if @user
       cookies.signed[:user_id] = @user.id
       redirect_to @user
     else

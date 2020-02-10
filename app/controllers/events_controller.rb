@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  
   before_action :user_logged_in, only: :create
 
   def new
@@ -22,7 +21,7 @@ class EventsController < ApplicationController
 
   private
 
-    def event_params
-      params.require(:event).permit(:name, :description, :time)
-    end
+  def event_params
+    params.require(:event).permit(:name, :description, :time)
+  end
 end

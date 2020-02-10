@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?  
+  helper_method :current_user, :logged_in?
 
   def current_user
     return nil if cookies.signed[:user_id].nil?
@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !(current_user).nil?
+    !current_user.nil?
   end
 
   def user_logged_in
-    unless logged_in?
-      flash[:danger] = "You need to log in before creating events"
-      redirect_to root_url
-    end
+    return if logged_in?
+
+    flash[:danger] = 'You need to log in before creating events'
+    redirect_to root_url
   end
 end

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -10,7 +9,7 @@ class UsersController < ApplicationController
       cookies.signed[:user_id] = @user.id
       redirect_to @user
     else
-      flash.now[:danger] = "User already in db!" if User.exists?(name: user_params[:name])
+      flash.now[:danger] = 'User already in db!' if User.exists?(name: user_params[:name])
       render 'new'
     end
   end
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name)
-    end
+  def user_params
+    params.require(:user).permit(:name)
+  end
 end
