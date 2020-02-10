@@ -1,0 +1,23 @@
+<h1>All events</h1>
+<% if @events.upcoming.any? %>
+  <p>Upcoming:</p>
+  <ul>
+    <% @events.upcoming.each do |event| %>
+      <li>
+        <%= link_to event.name, event_path(event) %> on <%= event.time %>.
+        Hosted by <%= link_to event.creator.name, user_path(event.creator) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<% if @events.past.any? %>
+  <p>Past:</p>
+  <ul>
+    <% @events.past.each do |event| %>
+      <li>
+        <%= link_to event.name, event_path(event) %> on <%= event.time %>.
+        Hosted by <%= link_to event.creator.name, user_path(event.creator) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

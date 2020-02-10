@@ -1,0 +1,12 @@
+<%= form_for @event, html: { class: 'col-md-6 col-md-offset-3' } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <div class="field">
+    <%= f.text_area :description, placeholder: "Describe the event:" %>
+  </div>
+  <%= f.label :time %>
+  <div class="time">
+    <%= f.datetime_select :time, class: 'form-control' %>
+  </div>
+  <%= f.submit "Create event", class: "btn btn-primary" %>
+<% end %>
