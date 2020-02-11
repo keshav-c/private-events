@@ -23,4 +23,4 @@ clone this repo, and run `rails db:migrate`
 
 ## Tests
 
-`rspec spec/features`
+`rspec --format doc`
