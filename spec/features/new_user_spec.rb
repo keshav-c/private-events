@@ -5,17 +5,16 @@ RSpec.describe 'User creation and login', type: :feature do
     @user = User.create(name: 'Test User')
   end
 
-  it 'Creates new user with unique name' do
+  scenario 'valid new user' do
     visit root_url
     click_on 'Register'
     expect(page).to have_content('Sign up!')
     fill_in 'Name', with: 'Valid User'
     click_on 'Create my account'
     expect(page).to have_content('Welcome Valid User')
-    # expect(User.count)
   end
 
-  it 'Rejects new user with existing name' do
+  scenario 'invalid new user' do
     visit root_url
     click_on 'Register'
     fill_in 'Name', with: 'Test User'
@@ -23,7 +22,7 @@ RSpec.describe 'User creation and login', type: :feature do
     expect(page).to have_content('User already in db!')
   end
 
-  it 'logs in valid existing user' do
+  scenario 'valid login' do
     visit root_url
     click_on 'Login'
     expect(page).to have_content('Log in')
@@ -32,7 +31,7 @@ RSpec.describe 'User creation and login', type: :feature do
     expect(page).to have_content('Welcome Test User')
   end
 
-  it 'Does not log in non existant user' do
+  scenario 'invalid login' do
     visit root_url
     click_on 'Login'
     expect(page).to have_content('Log in')
