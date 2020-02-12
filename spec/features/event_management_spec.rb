@@ -51,19 +51,18 @@ RSpec.describe 'Event Management', type: :feature do
     expect(page).to have_content("#{e2.name} on #{@tpast}. Hosted by #{e2.creator.name}")
   end
 
-  it "create new event when logged in" do
+  it 'create new event when logged in and display details of the event' do
     visit root_url
     click_on 'Login'
     fill_in 'Name', with: 'User 1'
     click_button 'Login'
-    expect {
-      decription = 'A description of the event was given.'
+    expect do
       click_link 'Create new event'
       fill_in 'Name', with: 'User 1\'s event'
-      fill_in 'Description', with: description
+      fill_in 'Description', with: 'A description of the event was given.'
       click_button 'Create event'
       expect(page).to have_content("Event created by #{@user1.name}")
-      expect(page).to have_content(description)
-    }.to change(@user1.events, :count).by(1)
+      expect(page).to have_content('A description of the event was given.')
+    end.to change(@user1.events, :count).by(1)
   end
 end
