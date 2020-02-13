@@ -5,51 +5,54 @@
   <p> This is <%= @user.name %>'s profile page</p>
 <% end %>
 <div>
-  <div class="col-md-6">
-    <p>Hosted Events:</p>
-    <% if !@user.events.upcoming.empty? %>
-      <p>Upcoming:</p>
-      <ul>
-        <% @user.events.upcoming.each do |e| %>
-          <li>
-            <%= link_to e.name, event_path(e) %> @ <%= e.time %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <% if !@user.events.past.empty? %>
-      <p>Past:</p>
-      <ul>
-        <% @user.events.past.each do |e| %>
-          <li>
-            <%= link_to e.name, event_path(e) %> @ <%= e.time %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-
-  <div class="col-md-6">
-    <p>Attended Events:</p>
-    <% if !@user.attended_events.upcoming.empty? %>
-      <p>Upcoming:</p>
-      <ul>
-        <% @user.attended_events.upcoming.each do |e| %>
-          <li>
-            <%= link_to e.name, event_path(e) %> @ <%= e.time %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <% if !@user.attended_events.past.empty? %>
-      <p>Past:</p>
-      <ul>
-        <% @user.attended_events.past.each do |e| %>
-          <li>
-            <%= link_to e.name, event_path(e) %> @ <%= e.time %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
+  <% if !@user.events.empty? %>
+    <div class="col-md-6">
+      <p>Hosted Events:</p>
+      <% if !@user.events.upcoming.empty? %>
+        <p>Upcoming:</p>
+        <ul>
+          <% @user.events.upcoming.each do |e| %>
+            <li>
+              <%= link_to e.name, event_path(e) %> @ <%= e.time %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if !@user.events.past.empty? %>
+        <p>Past:</p>
+        <ul>
+          <% @user.events.past.each do |e| %>
+            <li>
+              <%= link_to e.name, event_path(e) %> @ <%= e.time %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
+  <% if !@user.attended_events.empty? %>
+    <div class="col-md-6">
+      <p>Attended Events:</p>
+      <% if !@user.attended_events.upcoming.empty? %>
+        <p>Upcoming:</p>
+        <ul>
+          <% @user.attended_events.upcoming.each do |e| %>
+            <li>
+              <%= link_to e.name, event_path(e) %> @ <%= e.time %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if !@user.attended_events.past.empty? %>
+        <p>Past:</p>
+        <ul>
+          <% @user.attended_events.past.each do |e| %>
+            <li>
+              <%= link_to e.name, event_path(e) %> @ <%= e.time %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
 </div>
